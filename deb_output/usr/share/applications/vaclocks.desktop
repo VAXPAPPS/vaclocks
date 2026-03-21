@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=vaclocks
+Comment=Flutter Application - vaclocks
+Exec=/usr/bin/vaclocks
+Icon=/usr/share/icons/hicolor/256x256/apps/vaclocks.png
+Terminal=false
+Categories=Utility;Development;

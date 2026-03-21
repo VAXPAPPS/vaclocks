@@ -11,12 +11,12 @@ class VenomScaffold extends StatelessWidget {
   final ValueChanged<int> onIndexChanged;
 
   const VenomScaffold({
-    Key? key,
+    super.key,
     required this.body,
     this.title = "VaClocks",
     required this.index,
     required this.onIndexChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +36,11 @@ class _VenomScaffoldBody extends StatefulWidget {
   final ValueChanged<int> onIndexChanged;
 
   const _VenomScaffoldBody({
-    Key? key,
     required this.body,
     required this.title,
     required this.index,
     required this.onIndexChanged,
-  }) : super(key: key);
+  });
 
   @override
   State<_VenomScaffoldBody> createState() => _VenomScaffoldBodyState();
@@ -120,13 +119,13 @@ class VenomAppbar extends StatelessWidget {
   final VoidCallback onHoverExit;
 
   const VenomAppbar({
-    Key? key,
+    super.key,
     required this.title,
     required this.index,
     required this.onIndexChanged,
     required this.onHoverEnter,
     required this.onHoverExit,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -217,11 +216,11 @@ class VenomWindowButton extends StatefulWidget {
   final VoidCallback onPressed;
 
   const VenomWindowButton({
-    Key? key,
+    super.key,
     required this.color,
     required this.icon,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   State<VenomWindowButton> createState() => _VenomWindowButtonState();
@@ -249,7 +248,7 @@ class _VenomWindowButtonState extends State<VenomWindowButton> {
             boxShadow: _isHovered
                 ? [
                     BoxShadow(
-                      color: widget.color.withOpacity(0.8),
+                      color: widget.color.withValues(alpha: 0.8),
                       blurRadius: 10, // زيادة التوهج قليلاً
                       spreadRadius: 2,
                     ),
@@ -263,7 +262,7 @@ class _VenomWindowButtonState extends State<VenomWindowButton> {
               child: Icon(
                 widget.icon,
                 size: 10,
-                color: Colors.black.withOpacity(0.7),
+                color: Colors.black.withValues(alpha: 0.7),
               ),
             ),
           ),

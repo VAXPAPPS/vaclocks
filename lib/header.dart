@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:vaclocks/Segmented.dart';
+import 'package:vaclocks/segmented.dart';
 import 'package:vaclocks/core/l10n/app_localizations.dart';
 import 'package:vaclocks/core/l10n/locale_cubit.dart';
 import 'package:vaclocks/features/alarms/presentation/bloc/alarm_bloc.dart';
 import 'package:vaclocks/features/world_clock/presentation/bloc/world_clock_bloc.dart';
 
 class VaxpHeader extends StatelessWidget {
-  const VaxpHeader({required this.index, required this.onChanged});
+  const VaxpHeader({super.key, required this.index, required this.onChanged});
   final int index;
   final ValueChanged<int> onChanged;
 
@@ -57,7 +57,7 @@ class VaxpHeader extends StatelessWidget {
         const SizedBox(width: 8),
         _IconButton(icon: Icons.menu, onPressed: () async {
           final info = await PackageInfo.fromPlatform();
-          // ignore: use_build_context_synchronously
+          if (!context.mounted) return;
           showDialog(
             context: context,
             builder: (_) {
